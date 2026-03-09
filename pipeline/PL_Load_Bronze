@@ -1,0 +1,75 @@
+{
+    "name": "PL_Load_Bronze",
+    "properties": {
+        "description": "Migrated from DI_SQL_Server_SSIS_Package_Builder_Output_1.dtsx. Executes 2 bronze stored procedures in sequence.",
+        "activities": [
+            {
+                "name": "SP_Load_bz_DimDate",
+                "description": "Migrated from SSIS task: Execute_Bronze_usp_Load_bz_DimDate",
+                "type": "SqlServerStoredProcedure",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 30
+                },
+                "typeProperties": {
+                    "storedProcedureName": "[bronze].[usp_Load_bz_DimDate]",
+                    "storedProcedureParameters": {
+                        "BatchID": {
+                            "value": {
+                                "value": "@pipeline().parameters.BatchID",
+                                "type": "Expression"
+                            },
+                            "type": "Int32"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "LS_AvaDataPoc",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "SP_Load_bz_Hiring_Initiator_Project_Info",
+                "description": "Migrated from SSIS task: Execute_Bronze_usp_Load_bz_Hiring_Initiator_Project_Info",
+                "type": "SqlServerStoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "SP_Load_bz_DimDate",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 30
+                },
+                "typeProperties": {
+                    "storedProcedureName": "[bronze].[usp_Load_bz_Hiring_Initiator_Project_Info]",
+                    "storedProcedureParameters": {
+                        "BatchID": {
+                            "value": {
+                                "value": "@pipeline().parameters.BatchID",
+                                "type": "Expression"
+                            },
+                            "type": "Int32"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "LS_AvaDataPoc",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        ],
+        "parameters": {
+            "BatchID": {
+                "type": "int",
+                "defaultValue": -1
+            }
+        }
+    }
+}
