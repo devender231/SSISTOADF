@@ -1,1 +1,23 @@
-
+{
+    "name": "LS_AvaDataPoc",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "server": "sqlserver-ava-poc-data.database.windows.net",
+            "database": "db-ava-data-poc",
+            "encrypt": "mandatory",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "avadatapoc",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "LS_AzureKeyVault",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "LS-AvaDataPoc-Password"
+            }
+        },
+        "description": "Connection to db-ava-data-poc on sqlserver-ava-poc-data.database.windows.net. Migrated from DI_SQL_Server_SSIS_Package_Builder_Output_1.dtsx"
+    }
+}
