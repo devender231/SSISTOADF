@@ -1,0 +1,9 @@
+{
+	"name": "ava-poc-data-adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "69fb7073-a206-4c52-ab7e-04c6d63b4e25",
+		"tenantId": "d7758e8f-1df3-489f-86b5-a2254f55f9cc"
+	}
+}

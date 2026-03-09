@@ -1,0 +1,52 @@
+{
+	"name": "DS_ERROR_LOG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_TARGET_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ErrorID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PipelineName",
+				"type": "nvarchar",
+				"precision": 255
+			},
+			{
+				"name": "ActivityName",
+				"type": "nvarchar",
+				"precision": 255
+			},
+			{
+				"name": "ErrorMessage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ErrorTime",
+				"type": "datetime2",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "BatchDate",
+				"type": "date"
+			},
+			{
+				"name": "RecordsProcessed",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ETL_ErrorLog"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

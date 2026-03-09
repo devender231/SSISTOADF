@@ -1,0 +1,53 @@
+{
+	"name": "DS_SOURCE_RESEARCH_SUBSCRIPTION",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SOURCE_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SubscriptionID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SubscriberName",
+				"type": "nvarchar",
+				"precision": 255
+			},
+			{
+				"name": "Sector",
+				"type": "nvarchar",
+				"precision": 100
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar",
+				"precision": 100
+			},
+			{
+				"name": "LastActivityDate",
+				"type": "date"
+			},
+			{
+				"name": "SubscriptionType",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "CreatedOn",
+				"type": "datetime2",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Research_Subscription"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

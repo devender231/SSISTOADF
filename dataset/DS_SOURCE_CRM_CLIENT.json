@@ -1,0 +1,77 @@
+{
+	"name": "DS_SOURCE_CRM_CLIENT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SOURCE_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CRMClientID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ClientFullName",
+				"type": "nvarchar",
+				"precision": 255
+			},
+			{
+				"name": "IndustryCode",
+				"type": "nvarchar",
+				"precision": 100
+			},
+			{
+				"name": "HQCountry",
+				"type": "nvarchar",
+				"precision": 100
+			},
+			{
+				"name": "AnnualRevenueRange",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "EmployeeRange",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "RelationshipCategory",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "AccountOwner",
+				"type": "nvarchar",
+				"precision": 150
+			},
+			{
+				"name": "ContractStart",
+				"type": "date"
+			},
+			{
+				"name": "ContractEnd",
+				"type": "date"
+			},
+			{
+				"name": "StatusFlag",
+				"type": "char",
+				"precision": 1
+			},
+			{
+				"name": "ModifiedOn",
+				"type": "datetime2",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CRM_Client"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

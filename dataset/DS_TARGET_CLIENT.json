@@ -1,0 +1,87 @@
+{
+	"name": "DS_TARGET_CLIENT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_TARGET_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ClientID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ClientName",
+				"type": "nvarchar",
+				"precision": 255
+			},
+			{
+				"name": "IndustrySector",
+				"type": "nvarchar",
+				"precision": 100
+			},
+			{
+				"name": "HeadquartersCountry",
+				"type": "nvarchar",
+				"precision": 100
+			},
+			{
+				"name": "RevenueRange",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "EmployeeCountRange",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "RelationshipType",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "AccountManager",
+				"type": "nvarchar",
+				"precision": 150
+			},
+			{
+				"name": "ContractStartDate",
+				"type": "date"
+			},
+			{
+				"name": "ContractEndDate",
+				"type": "date"
+			},
+			{
+				"name": "ClientStatus",
+				"type": "nvarchar",
+				"precision": 50
+			},
+			{
+				"name": "LastEngagementDate",
+				"type": "date"
+			},
+			{
+				"name": "CreatedDate",
+				"type": "datetime2",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime2",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Client"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
