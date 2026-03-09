@@ -1,0 +1,26 @@
+{
+    "name": "TR_Daily_Bronze_Load",
+    "properties": {
+        "description": "Daily trigger for PL_Load_Bronze. Runs at 06:00 UTC every day.",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Day",
+                "interval": 1,
+                "startTime": "2024-01-01T06:00:00Z",
+                "timeZone": "UTC"
+            }
+        },
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "PL_Load_Bronze",
+                    "type": "PipelineReference"
+                },
+                "parameters": {
+                    "BatchID": -1
+                }
+            }
+        ]
+    }
+}
