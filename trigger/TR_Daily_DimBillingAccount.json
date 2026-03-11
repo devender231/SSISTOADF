@@ -1,0 +1,27 @@
+{
+    "name": "TR_Daily_DimBillingAccount",
+    "properties": {
+        "description": "Runs PL_Load_DimBillingAccount every day at 07:00 UTC",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Day",
+                "interval": 1,
+                "startTime": "2026-03-11T07:00:00Z",
+                "timeZone": "UTC"
+            }
+        },
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "PL_Load_DimBillingAccount",
+                    "type": "PipelineReference"
+                },
+                "parameters": {
+                    "BatchID": 1,
+                    "IncrementDays": -30
+                }
+            }
+        ]
+    }
+}
