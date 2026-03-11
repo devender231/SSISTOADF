@@ -1,0 +1,52 @@
+{
+    "name": "PL_Load_DimBillingAccount",
+    "properties": {
+        "description": "Migrated from EDW_BC_Load_DimBillingAccount.dtsx. Calls SP_Load_DimBillingAccount stored procedure.",
+        "activities": [
+            {
+                "name": "SP_Load_DimBillingAccount",
+                "type": "SqlServerStoredProcedure",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30
+                },
+                "typeProperties": {
+                    "storedProcedureName": "dbo.SP_Load_DimBillingAccount",
+                    "storedProcedureParameters": {
+                        "BatchID": {
+                            "value": {
+                                "value": "@pipeline().parameters.BatchID",
+                                "type": "Expression"
+                            },
+                            "type": "Int32"
+                        },
+                        "IncrementDays": {
+                            "value": {
+                                "value": "@pipeline().parameters.IncrementDays",
+                                "type": "Expression"
+                            },
+                            "type": "Int32"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "poc_linkedservice",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        ],
+        "parameters": {
+            "BatchID": {
+                "type": "int",
+                "defaultValue": 1
+            },
+            "IncrementDays": {
+                "type": "int",
+                "defaultValue": -30
+            }
+        },
+        "annotations": []
+    }
+}
